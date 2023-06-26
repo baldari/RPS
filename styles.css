@@ -19,7 +19,8 @@ h1 {
     min-height: 120px;
     max-height: 150px;
     font-family: impact;
-    font-size: 1.9rem;
+    font-size: 3vw;
+    /*font-size: 1.9rem;*/
     background-color: #557A95;
     border: 5px solid black;
 }
@@ -38,7 +39,7 @@ h1 {
 
 .choice > img {
     height: 50%;
-    width: 90px;
+    width: 60px;
 }
 
 .reset {
@@ -98,5 +99,11 @@ h1 {
     #result-div {
         height: 20vh;
         min-height: 125px;
+    }
+}
+
+@media (max-width: 375px) {
+    #score-div {
+        margin-top: 100px;
     }
 }
