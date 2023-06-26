@@ -79,5 +79,3 @@ function game() {
         console.log("YOU LOSE THE GAME")
     }
 }
-
-game()
