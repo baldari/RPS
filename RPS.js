@@ -1,3 +1,22 @@
+const player = document.querySelector('.player');
+const computer = document.querySelector('.computer');
+
+const resultText = document.querySelector('#result-text')
+
+const reset = document.querySelector('.reset')
+
+const rock = document.querySelector('.rock');
+const paper = document.querySelector('.paper');
+const scissors = document.querySelector('.scissors');
+
+reset.addEventListener('click', () => {
+    resultText.textContent = "YOU vs. COMPUTER. FIRST TO FIVE WINS.";
+    computer.textContent = "0"
+    player.textContent = "0";
+    playerWins = 0;
+    computerWins = 0;
+})
+
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3)
     if (choice === 0) {
@@ -14,9 +33,9 @@ function getComputerChoice() {
 function play(computer, player) {
     newComputer = computer.toLowerCase()
     newPlayer = player.toLowerCase()
-    let result = 0
+    let result = 0;
     if (newComputer === newPlayer) {
-        return 2
+        return 2;
     }
     if (newPlayer === "rock") {
         if (newComputer === "paper") {
@@ -27,7 +46,7 @@ function play(computer, player) {
         }
     }
     else if (newPlayer === "paper") {
-        if (computer === "scissors") {
+        if (newComputer === "scissors") {
             result += 0
         }
         else {
@@ -45,37 +64,88 @@ function play(computer, player) {
     return result
 }
 
-function game() {
-    let playerWins = 0
-    let computerWins = 0
-    let userChoice = ""
-    let computerChoice = ""
-    let round = 1
-    while (playerWins != 5 && computerWins != 5) {
-        console.log("Round " + round + ":")
-        userChoice = prompt("Make your pick...: ")
-        computerChoice = getComputerChoice()
-        let result = play(computerChoice, userChoice)
+let result = 0;
+let playerWins = 0;
+let computerWins = 0;
+let round = 0;
+let text = "";
+
+
+    rock.addEventListener('click', () => {
+        let computerChoice = getComputerChoice();
+        result = play(computerChoice, "rock");
         if (result === 0) {
             computerWins += 1
             round += 1
-            console.log("You lose this round! " + computerChoice + " beats " + userChoice)
+            text = "You lose this round! " + computerChoice + " beats rock"
         }
         if (result === 1) {
             playerWins += 1
             round += 1
-            console.log("You win this round! " + userChoice + " beats " + computerChoice)
+            text = "You win this round! Rock beats " + computerChoice
         }
         if (result === 2) {
-            console.log("It's a tie!")
+            text = "It's a tie!"
         }
-        console.log("Current Score: YOU: " + playerWins + ", COMPUTER: " + computerWins)
-    }
-    
-    if (playerWins > computerWins) {
-        console.log("YOU WIN THE GAME")
-    }
-    else {
-        console.log("YOU LOSE THE GAME")
-    }
-}
+        computer.textContent = String(computerWins);
+        player.textContent = String(playerWins);
+        if (playerWins === 5) {
+            resultText.textContent = "YOU WIN!";  
+        }
+        if (computerWins === 5) {
+            resultText.textContent = "YOU LOSE!";
+        }
+        resultText.textContent = text;
+    });
+    paper.addEventListener('click', function(e) {
+        let computerChoice = getComputerChoice();
+        result = play(computerChoice, "paper");
+        if (result === 0) {
+            computerWins += 1
+            round += 1
+            text = "You lose this round! " + computerChoice + " beats paper"
+        }
+        if (result === 1) {
+            playerWins += 1
+            round += 1
+            text = "You win this round! Paper beats " + computerChoice
+        }
+        if (result === 2) {
+            text = "It's a tie!"
+        }
+        computer.textContent = String(computerWins);
+        player.textContent = String(playerWins);
+        if (playerWins === 5) {
+            resultText.textContent = "YOU WIN!";
+        }
+        if (computerWins === 5) {
+            resultText.textContent = "YOU LOSE!";
+        }
+        resultText.textContent = text;
+    });
+    scissors.addEventListener('click', function(e) {
+        let computerChoice = getComputerChoice();
+        result = play(computerChoice, "scissors");
+        if (result === 0) {
+            computerWins += 1
+            round += 1
+            text = "You lose this round! " + computerChoice + " beats scissors"
+        }
+        if (result === 1) {
+            playerWins += 1
+            round += 1
+            text = "You win this round! Scissors beats " + computerChoice
+        }
+        if (result === 2) {
+            text = "It's a tie!"
+        }
+        computer.textContent = String(computerWins);
+        player.textContent = String(playerWins);
+        if (playerWins === 5) {
+            resultText.textContent = "YOU WIN!";
+        }
+        if (computerWins === 5) {
+            resultText.textContent = "YOU LOSE!";
+        }
+        resultText.textContent = text;
+    });
