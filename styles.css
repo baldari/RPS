@@ -19,7 +19,7 @@ h1 {
     min-height: 120px;
     max-height: 150px;
     font-family: impact;
-    font-size: 3vw;
+    font-size: 30px;
     /*font-size: 1.9rem;*/
     background-color: #557A95;
     border: 5px solid black;
@@ -105,5 +105,8 @@ h1 {
 @media (max-width: 375px) {
     #score-div {
         margin-top: 100px;
+    }
+    .choice {
+        font-size: 20px;
     }
 }
