@@ -7,7 +7,7 @@ body {
 h1 {
     text-align: center;
     font-size: 5rem;
-    margin: 10px 0px -40px 0px;
+    margin: 10px 0px -35px 0px;
 }
 
 .choice {
@@ -20,8 +20,7 @@ h1 {
     min-height: 120px;
     max-height: 150px;
     font-family: impact;
-    font-size: 30px;
-    /*font-size: 1.9rem;*/
+    font-size: 2rem;
     background-color: #557A95;
     border: 5px solid black;
 }
@@ -59,19 +58,12 @@ h1 {
     max-height: 200px;
     width: 100vw;
     margin-bottom: 75px;
+    margin-top: -20px;
 }
 
-#result-div {
-    height: 10vh;
-    min-height: 60px;
-    max-height: 100px;
-    width: 100vw;
-    margin-bottom: 25px;
-}
-
-#result-div > p {
+#result-text {
     text-align: center;
-    font-size: 50px;
+    font-size: 3rem;
     border: 5px solid black;
     background-color: #ADD8E6;
 }
@@ -82,7 +74,7 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 30px;
+    font-size: 2rem;
 }
 
 .score {
@@ -93,21 +85,33 @@ h1 {
     justify-content: space-around;
     align-items: center;
     background-color: white;
-    font-size: 300%;
+    font-size: 6rem;
 }
 
-@media (max-width: 770px) {
-    #result-div {
-        height: 20vh;
-        min-height: 125px;
+@media (max-width: 400px) {
+    h1 {
+        font-size: 3rem;
+        margin-bottom: -20px;
     }
-}
 
-@media (max-width: 375px) {
-    #score-div {
-        margin-top: 100px;
+    #result-text {
+        font-size: 2rem;
     }
+
+    .score-flex {
+        font-size: 1rem;
+    }
+
+    .score {
+        font-size: 3rem;
+    }
+
     .choice {
-        font-size: 20px;
+        font-size: 1rem;
+    }
+
+    .choice > img {
+        height: 30px;
+        width: 30px;
     }
 }
