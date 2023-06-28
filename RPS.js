@@ -96,7 +96,6 @@ function play(computer, player) {
 
 let playerWins = 0;
 let computerWins = 0;
-let round = 0;
 let text = "";
 
 
