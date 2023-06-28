@@ -9,6 +9,31 @@ const rock = document.querySelector('.rock');
 const paper = document.querySelector('.paper');
 const scissors = document.querySelector('.scissors');
 
+let playerWins = 0;
+let computerWins = 0;
+let text = "";
+
+rock.addEventListener('click', function rockCall() {
+    let computerChoice = getComputerChoice();
+    play(computerChoice, "ROCK");
+    computer.textContent = String(computerWins);
+    player.textContent = String(playerWins);
+});
+
+paper.addEventListener('click', function paperCall() {
+    let computerChoice = getComputerChoice();
+    play(computerChoice, "PAPER");
+    computer.textContent = String(computerWins);
+    player.textContent = String(playerWins);
+});
+
+scissors.addEventListener('click', function scissorsCall() {
+    let computerChoice = getComputerChoice();
+    play(computerChoice, "SCISSORS");
+    computer.textContent = String(computerWins);
+    player.textContent = String(playerWins);
+});
+
 reset.addEventListener('click', function reset() {
     resultText.textContent = "YOU vs. COMPUTER. FIRST TO FIVE WINS.";
     computer.textContent = "0"
@@ -93,29 +118,3 @@ function play(computer, player) {
         resultText.textContent = "YOU LOSE!";
     }
 }
-
-let playerWins = 0;
-let computerWins = 0;
-let text = "";
-
-
-rock.addEventListener('click', function rockCall() {
-    let computerChoice = getComputerChoice();
-    play(computerChoice, "ROCK");
-    computer.textContent = String(computerWins);
-    player.textContent = String(playerWins);
-});
-
-paper.addEventListener('click', function paperCall() {
-    let computerChoice = getComputerChoice();
-    play(computerChoice, "PAPER");
-    computer.textContent = String(computerWins);
-    player.textContent = String(playerWins);
-});
-
-scissors.addEventListener('click', function scissorsCall() {
-    let computerChoice = getComputerChoice();
-    play(computerChoice, "SCISSORS");
-    computer.textContent = String(computerWins);
-    player.textContent = String(playerWins);
-});
